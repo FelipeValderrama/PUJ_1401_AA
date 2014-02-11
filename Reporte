@@ -1,0 +1,82 @@
+\documentclass[]{report}
+
+
+% Title Page
+\title{Reporte Taller 1}
+\author{Felipe Valderrama A \and Daniel Gomez Didier}
+
+
+\begin{document}
+\maketitle
+
+\begin{itemize}
+\item Implemente el algoritmo de ordenamiento por inserción en Python. 
+
+\item Pruébelo con un arreglo generado al azar con 100 enteros. Use la línea de comando y el intérprete interactivo.
+
+\item Escriba una función que determine si un arreglo dado se encuentra en orden.
+
+\item Siga el tutorial en http://www.spoj.pl/tutorials/USERS/
+
+\item Envíe una solución en Ptyhon para el problema DOUGHNUT
+
+\item Solucione el problema TSORT \\
+
+\end{itemize}
+
+\begin{center}
+\textbf{{\Large \title{Solucion}}}
+\end{center}
+
+{\large \textbf{1. Solución para el insertion sort.}} \\ \\
+import random \\
+
+def is\_ordered(l, function=lambda x, y: x <= y): \\
+    collection = list(l)\\
+    return all(function(collection[i], collection[i + 1]) for i in range(len(collection) - 1)) \\ \\
+
+
+def ordered\_insertion(elements, element, function=lambda x, y: x <= y):\\ \\
+    for i in range(len(elements)): \\
+        if not function(elements[i], element): \\
+            elements.insert(i, element) \\
+            return \\
+    elements.append(element) \\
+
+def insertion\_sort(elements, function=lambda x, y: x <= y): \\
+    inner\_list = list() \\
+    for e in elements: \\
+        ordered\_insertion(inner\_list, e, function) \\
+    return inner\_list \\
+
+
+comparer = lambda x, y: x >= y \\
+
+l = list() \\
+[l.append(random.randint(0,100000)) for \_ in range($2000000000$)] \\
+
+for x in insertion\_sort(l): \\
+    print(x) \\
+    
+\begin{flushleft}
+{\large \textbf{2. Algoritmo propuesto para DOGHNUT \\}}
+
+lines = int(input())\\
+while lines != 0:\\
+   \ \ \ \ \ \ lines -= 1\\
+   \ \ \ \ \ \ c, w, dw = [int(x) for x in input().split()]\\
+   \ \ \ \ \ \ valid = 'yes' if c * dw <= w else "no"\\
+   \ \ \ \ \ \ print(valid)\\ 
+\end{flushleft}
+{\large \textbf{3. Algoritmo propuesto para TSORT \\}}
+
+from io import StringIO \\
+import sys \\
+
+input\_ = map(int, StringIO(sys.stdin.read())) \\
+input\_.next() \\
+\#l = sys.stdin.read().split[1:] \\
+input\_.sort(key=int) \\
+print("\verb+\+n".join(input\_)) \\
+
+\end{document}          
